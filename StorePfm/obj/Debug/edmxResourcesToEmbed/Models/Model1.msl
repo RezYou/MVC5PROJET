@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PFMSTOREModelStoreContainer" CdmEntityContainer="PFMSTOREEntities">
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="PFMSTOREModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="IDcategorie" ColumnName="IDcategorie" />
+          <ScalarProperty Name="CategorieName" ColumnName="CategorieName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commande">
+      <EntityTypeMapping TypeName="PFMSTOREModel.Commande">
+        <MappingFragment StoreEntitySet="Commande">
+          <ScalarProperty Name="NumCmd" ColumnName="NumCmd" />
+          <ScalarProperty Name="DateCmd" ColumnName="DateCmd" />
+          <ScalarProperty Name="dateLiv" ColumnName="dateLiv" />
+          <ScalarProperty Name="statusPai" ColumnName="statusPai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="PFMSTOREModel.Comments">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="IDcmnt" ColumnName="IDcmnt" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IDP" ColumnName="IDP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LigneCommande">
+      <EntityTypeMapping TypeName="PFMSTOREModel.LigneCommande">
+        <MappingFragment StoreEntitySet="LigneCommande">
+          <ScalarProperty Name="NumCmd" ColumnName="NumCmd" />
+          <ScalarProperty Name="NumClt" ColumnName="NumClt" />
+          <ScalarProperty Name="Qte" ColumnName="Qte" />
+          <ScalarProperty Name="IDP" ColumnName="IDP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produit">
+      <EntityTypeMapping TypeName="PFMSTOREModel.Produit">
+        <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="IDP" ColumnName="IDP" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="IDcategorie" ColumnName="IDcategorie" />
+          <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+          <ScalarProperty Name="QteStock" ColumnName="QteStock" />
+          <ScalarProperty Name="IDlivrer" ColumnName="IDlivrer" />
+          <ScalarProperty Name="FeedBack" ColumnName="FeedBack" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileBuyer">
+      <EntityTypeMapping TypeName="PFMSTOREModel.ProfileBuyer">
+        <MappingFragment StoreEntitySet="ProfileBuyer">
+          <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+          <ScalarProperty Name="NumClt" ColumnName="NumClt" />
+          <ScalarProperty Name="IDCom" ColumnName="IDCom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profileImages">
+      <EntityTypeMapping TypeName="PFMSTOREModel.profileImages">
+        <MappingFragment StoreEntitySet="profileImages">
+          <ScalarProperty Name="IDimages" ColumnName="IDimages" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="CovertureImage" ColumnName="CovertureImage" />
+          <ScalarProperty Name="SlideImage1" ColumnName="SlideImage1" />
+          <ScalarProperty Name="SlideImage2" ColumnName="SlideImage2" />
+          <ScalarProperty Name="SlideImage3" ColumnName="SlideImage3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileSeller">
+      <EntityTypeMapping TypeName="PFMSTOREModel.ProfileSeller">
+        <MappingFragment StoreEntitySet="ProfileSeller">
+          <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+          <ScalarProperty Name="NumClt" ColumnName="NumClt" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="IDimages" ColumnName="IDimages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

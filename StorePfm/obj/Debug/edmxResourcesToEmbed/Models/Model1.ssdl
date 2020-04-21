@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PFMSTOREModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="IDcategorie" />
+    </Key>
+    <Property Name="IDcategorie" Type="int" Nullable="false" />
+    <Property Name="CategorieName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Commande">
+    <Key>
+      <PropertyRef Name="NumCmd" />
+    </Key>
+    <Property Name="NumCmd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateCmd" Type="datetime" Nullable="false" />
+    <Property Name="dateLiv" Type="datetime" Nullable="false" />
+    <Property Name="statusPai" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="IDcmnt" />
+    </Key>
+    <Property Name="IDcmnt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comment" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IDP" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LigneCommande">
+    <Key>
+      <PropertyRef Name="NumCmd" />
+      <PropertyRef Name="NumClt" />
+      <PropertyRef Name="IDP" />
+    </Key>
+    <Property Name="NumCmd" Type="int" Nullable="false" />
+    <Property Name="NumClt" Type="int" Nullable="false" />
+    <Property Name="Qte" Type="int" Nullable="false" />
+    <Property Name="IDP" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="IDP" />
+    </Key>
+    <Property Name="IDP" Type="int" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="600" Nullable="false" />
+    <Property Name="Prix" Type="float" Nullable="false" />
+    <Property Name="IDcategorie" Type="int" Nullable="false" />
+    <Property Name="IDProfile" Type="int" Nullable="false" />
+    <Property Name="QteStock" Type="int" Nullable="false" />
+    <Property Name="IDlivrer" Type="int" Nullable="false" />
+    <Property Name="FeedBack" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfileBuyer">
+    <Key>
+      <PropertyRef Name="IDProfile" />
+    </Key>
+    <Property Name="IDProfile" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumClt" Type="int" Nullable="false" />
+    <Property Name="IDCom" Type="int" />
+  </EntityType>
+  <EntityType Name="profileImages">
+    <Key>
+      <PropertyRef Name="IDimages" />
+    </Key>
+    <Property Name="IDimages" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Logo" Type="varbinary(max)" Nullable="false" />
+    <Property Name="CovertureImage" Type="varbinary(max)" Nullable="false" />
+    <Property Name="SlideImage1" Type="varbinary(max)" Nullable="false" />
+    <Property Name="SlideImage2" Type="varbinary(max)" />
+    <Property Name="SlideImage3" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ProfileSeller">
+    <Key>
+      <PropertyRef Name="IDProfile" />
+    </Key>
+    <Property Name="IDProfile" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumClt" Type="int" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="50" />
+    <Property Name="IDimages" Type="int" />
+  </EntityType>
+  <Association Name="FK_Comments_Produit">
+    <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="IDP" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="IDP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LigneCommande_Commande">
+    <End Role="Commande" Type="Self.Commande" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LigneCommande" Type="Self.LigneCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commande">
+        <PropertyRef Name="NumCmd" />
+      </Principal>
+      <Dependent Role="LigneCommande">
+        <PropertyRef Name="NumCmd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LigneCommande_Produit">
+    <End Role="Produit" Type="Self.Produit" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LigneCommande" Type="Self.LigneCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="IDP" />
+      </Principal>
+      <Dependent Role="LigneCommande">
+        <PropertyRef Name="IDP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Produit_Categorie">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="IDcategorie" />
+      </Principal>
+      <Dependent Role="Produit">
+        <PropertyRef Name="IDcategorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Produit_ProfileSeller">
+    <End Role="ProfileSeller" Type="Self.ProfileSeller" Multiplicity="1" />
+    <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProfileSeller">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="Produit">
+        <PropertyRef Name="IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfileBuyer_Commande">
+    <End Role="Commande" Type="Self.Commande" Multiplicity="0..1" />
+    <End Role="ProfileBuyer" Type="Self.ProfileBuyer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commande">
+        <PropertyRef Name="NumCmd" />
+      </Principal>
+      <Dependent Role="ProfileBuyer">
+        <PropertyRef Name="IDCom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfileSeller_profileImages">
+    <End Role="profileImages" Type="Self.profileImages" Multiplicity="0..1" />
+    <End Role="ProfileSeller" Type="Self.ProfileSeller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profileImages">
+        <PropertyRef Name="IDimages" />
+      </Principal>
+      <Dependent Role="ProfileSeller">
+        <PropertyRef Name="IDimages" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PFMSTOREModelStoreContainer">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LigneCommande" EntityType="Self.LigneCommande" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfileBuyer" EntityType="Self.ProfileBuyer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="profileImages" EntityType="Self.profileImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfileSeller" EntityType="Self.ProfileSeller" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Comments_Produit" Association="Self.FK_Comments_Produit">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LigneCommande_Commande" Association="Self.FK_LigneCommande_Commande">
+      <End Role="Commande" EntitySet="Commande" />
+      <End Role="LigneCommande" EntitySet="LigneCommande" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LigneCommande_Produit" Association="Self.FK_LigneCommande_Produit">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="LigneCommande" EntitySet="LigneCommande" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Produit_Categorie" Association="Self.FK_Produit_Categorie">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Produit" EntitySet="Produit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Produit_ProfileSeller" Association="Self.FK_Produit_ProfileSeller">
+      <End Role="ProfileSeller" EntitySet="ProfileSeller" />
+      <End Role="Produit" EntitySet="Produit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfileBuyer_Commande" Association="Self.FK_ProfileBuyer_Commande">
+      <End Role="Commande" EntitySet="Commande" />
+      <End Role="ProfileBuyer" EntitySet="ProfileBuyer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfileSeller_profileImages" Association="Self.FK_ProfileSeller_profileImages">
+      <End Role="profileImages" EntitySet="profileImages" />
+      <End Role="ProfileSeller" EntitySet="ProfileSeller" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
