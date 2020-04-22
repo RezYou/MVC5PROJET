@@ -49,9 +49,8 @@ namespace StorePfm.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Courrier électronique")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -65,8 +64,23 @@ namespace StorePfm.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
+        [Required]
+        [Display(Name = "Role")]
+        public string Roles { get; set; }
+        [Required]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
+        
+        [Required]
+        [Phone]
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
+        
+        [Required]
         [EmailAddress]
-        [Display(Name = "Courrier électronique")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]

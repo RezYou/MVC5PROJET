@@ -110,8 +110,10 @@ F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\bin\fr\EntityFramework.SqlServer.res
 F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\bin\fr\Microsoft.AspNet.Identity.Core.resources.dll
 F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\bin\fr\Microsoft.AspNet.Identity.Owin.resources.dll
 F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\bin\fr\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\obj\Debug\StorePfm.csprojAssemblyReference.cache
 F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\obj\Debug\StorePfm.csproj.CoreCompileInputs.cache
 F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\obj\Debug\StorePfm.csproj.CopyComplete
 F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\obj\Debug\StorePfm.dll
 F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\obj\Debug\StorePfm.pdb
+F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\obj\Debug\StorePfm.csprojAssemblyReference.cache
+F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\obj\Debug\StorePfm.Migrations.userupdt.resources
+F:\ofppt\Mme-ELHADDAD\pfm\StorePfm\StorePfm\obj\Debug\StorePfm.csproj.GenerateResource.cache
