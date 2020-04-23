@@ -1,12 +1,10 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+  
+   
 }
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -22,3 +20,36 @@ select,
 textarea {
     max-width: 280px;
 }
+.CF{
+    margin:-3%;;
+    background-image:url(../image/BG.png);
+    background-size:cover;
+    padding-bottom:30%;
+}
+.d5{
+    float:right;
+    margin-right:-5%;
+    margin-top:10%;
+}
+.pc{
+    background-image:url(../image/BG.png);
+    background-size:cover;
+    padding-bottom:48.5%;
+}
+.cl1 {
+    background-color: rgba(70, 93, 67, 0.70);
+    box-shadow: 3px 0px 5px gray;
+}
+    .cl1 .control-label {
+        color:white;
+        font-weight:lighter;
+        margin-top:1%;
+    } 
+    .cl1 .form-control {
+      background-color:rgba(70, 93, 67, 0.70);
+      border:none;
+      color:white;
+    }
+    .navber{
+        background-color:rgba(1, 1, 1, 0.75)
+    }

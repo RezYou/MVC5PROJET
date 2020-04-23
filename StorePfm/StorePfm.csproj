@@ -195,8 +195,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\BG.png" />
+    <Content Include="image\facebook.png" />
+    <Content Include="image\instagrame.png" />
+    <Content Include="image\left.png" />
+    <Content Include="image\left2.png" />
+    <Content Include="image\right.png" />
+    <Content Include="image\right2.png" />
+    <Content Include="image\twitter.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="image\www.w3schools Offline Version _ Pinoysourcecode.com.rar" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

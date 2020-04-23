@@ -7,21 +7,21 @@
     <title>@ViewBag.Title - Mon application ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link rel="stylesheet" href="~/Content/Site.css"/>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse  navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header ">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nom d'application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("PFM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand bg-danger" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav ">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
                     <li>@Html.ActionLink("À propos de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
@@ -30,14 +30,36 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
+
+    </div>
+    <footer style="background-color:rgba(0, 0, 0, 0.65); margin-bottom:-5%; ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-7">
+                    <form class="form-group " style="margin-top:2%;">
+                        <h4 class="text-success text-center" style="font-weight:bolder">Contact US</h4>
+                        <center>
+                            <label style="color:white;">Email</label><input type="text" class="form-control" />
+                            <label style="color:white;">commentaire</label><textarea class="form-control"></textarea><br />
+                            <button class="btn"> Send</button>
+                        </center>
+                    </form>
+                </div>
+                <div>
+                    <ul class="text-center" style="margin-top:2%; list-style:none;">
+                        <li ><img src="~/image/facebook.png" width="5%" /> <span style="font-weight:bolder;  color:white;">PFM_2020</span></li>
+                        <li><img src="~/image/instagrame.png" width="5%" /><span style="font-weight:bolder; color:white;">PFM_2020</span></li>
+                        <li><img src="~/image/twitter.png" width="5%" /><span style="font-weight:bolder; color:white;">PFM_2020</span></li>
+                
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="background-color:white;" class="container-fluid text-center"><p class="text-info">&copy; @DateTime.Now.Year - My ASP.NET Application</p></div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
